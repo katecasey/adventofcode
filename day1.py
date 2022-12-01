@@ -7,7 +7,7 @@ calories["elf4"]=[7000, 8000, 9000]
 calories["elf5"]=[10000]
 
 highestCal = 0
-highestElf = ""
+highestElf = ''
 
 for elf in calories.keys():
 
