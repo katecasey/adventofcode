@@ -1,18 +1,19 @@
 calories = {}
-index = 0
-calories["elf" + str(index)] = []
+ind = 0
+index = 'elf' + str(ind)
+calories[index] = []
 highestCal = 0
 highestElf = ''
 
-
-with open('day1_input', 'r') as file:
+with open('day1_input.txt', 'r') as file:
     for line in file:
-        if line.rstrip('\n') != '':
-            calories["elf" + str(index)].append(line.rstrip('\n'))
+        cleanLine = line.rstrip('\n')
+        if cleanLine != '':
+            calories[index].append(cleanLine)
         else:
-            index += 1 
-            calories["elf" + str(index)] = []
-
+            ind += 1 
+            index = 'elf' + str(ind)
+            calories[index] = []
 
 for elf in calories.keys():
     total = 0
