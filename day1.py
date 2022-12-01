@@ -1,21 +1,25 @@
 calories = {}
-
-calories["elf1"]=[1000, 2000, 3000]
-calories["elf2"]=[4000]
-calories["elf3"]=[5000, 6000]
-calories["elf4"]=[7000, 8000, 9000]
-calories["elf5"]=[10000]
-
+index = 0
+calories["elf" + str(index)] = []
 highestCal = 0
 highestElf = ''
 
-for elf in calories.keys():
 
+with open('day1_input', 'r') as file:
+    for line in file:
+        if line.rstrip('\n') != '':
+            calories["elf" + str(index)].append(line.rstrip('\n'))
+        else:
+            index += 1 
+            calories["elf" + str(index)] = []
+
+
+for elf in calories.keys():
     total = 0
     for item in calories[elf]:
-        total += item
+        total += int(item)
     if total > highestCal:
         highestCal = total
         highestElf = elf
 
-print('Highest calorie value is ' + str(highestCal) + ' from ' + highestElf + '.')    
+print('Highest calorie value is ' + str(highestCal) + ' from ' + highestElf + '.')
